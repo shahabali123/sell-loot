@@ -1,0 +1,80 @@
+<%- include ('../includes/header.ejs') %>
+<%- include ('../includes/navbar.ejs') %>
+
+<div class="user-login-form">
+    <form 
+    method="post" 
+    action="/product-edit/<%= listing.id %>?_method=PUT"
+    novalidate class="needs-validation">
+        <h1>Edit Your Listing</h1>
+<!-- title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">New Product Title</label>
+         
+          <input type="text" name="title" 
+          class="form-control" id="name" 
+          aria-describedby="titleHelp" 
+          placeholder="<%= listing.title %>"
+          value="<%= listing.title %>">
+          <div id="titleHelp" class="form-text">Please choose a title that clearly represent your product.</div> <br>
+
+          <br>
+          <label 
+          for="category" 
+          class="form-label">Select Category</label>
+          <select required 
+          name="category" 
+          id="category" 
+          class="form-control">
+          <option value="fashion">Fashion</option>
+          <option value="beauty">Beauty</option>
+          <option value="home-decor">Home Decor</option>
+          <option value="computers">Computers</option>
+        </select>
+        <br>
+
+          <!-- price -->
+          <label for="price" class="form-label">New Price</label>
+          
+          <input type="number" name="price" 
+          class="form-control" id="price" 
+          placeholder="<%= listing.price %>"
+          value="<%= listing.price %>">
+          <br>
+
+          <!-- bulletpoints -->
+          <label for="bulletPoints[]" class="form-label">New Bullet Points</label>
+          <% for( bulletPoint of listing.bulletPoints ) { %>
+            <input type="text" name="bulletPoints[]" class="form-control" id="bulletPoints" aria-describedby="bulletHelp" 
+            placeholder="<%=bulletPoint%>"
+            value="<%=bulletPoint%>">
+          <% } %>
+        </div>
+        <br>
+          
+          
+
+        <!-- images -->
+        <label for="images[]" class="form-label">Input New Image Links</label>
+        <% for( image of listing.images) { %>
+            <input type="text" name="images[]" class="form-control" id="images" aria-describedby="bulletHelp" 
+            placeholder="<%=image%>"
+            value="<%=image%>">
+        <% } %>
+        <br>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">New Description</label>
+          
+          <textarea type="text" name="description" class="form-control" id="description" 
+          value="<%=listing.description%> "
+          placeholder="<%=listing.description%> "></textarea>
+        </div>
+
+        <button class="btn btn-lg btn-warning">Done</button>
+        </form>
+        </div>
+
+
+
+<%- include ('../includes/footer.ejs') %>

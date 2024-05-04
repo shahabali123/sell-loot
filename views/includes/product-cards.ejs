@@ -1,0 +1,21 @@
+<!-- Listings -->
+<div class="row card-container">
+
+  <h1>All Products</h1>
+
+  <% for(listing of allListings) { %>
+    <div class="card" style="width: 18rem;">
+      <img src='<%= listing.images[0]  %>' class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+          <% 
+            let truncatedTitle = listing.title.length > 20 ? `${listing.title.substring(0, 20)}...` : listing.title;
+          %>
+          <%= truncatedTitle %>
+          <p>PKR <%= listing.price %></p>
+        </h5>        <!-- <p class="card-text"><%= listing.description %></p> -->
+        <a href="/product-show/<%= listing._id %>" class="btn btn-primary btn-sm">See details</a>
+      </div>
+    </div>
+  <% } %>
+

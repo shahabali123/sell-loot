@@ -1,0 +1,72 @@
+<%- include ("../includes/header.ejs") %>
+<%- include ("../includes/navbar.ejs") %>
+
+<div class="product">
+    <div class="product-show">
+        <div class="product-main-image">
+           
+                <img src="<%= listing.images[0] %>" alt="" class="product-main-image">
+            
+        </div>
+        <div class="product-secondary-images">
+            <img src="<%= listing.images[1] %>" class="product-image-1"></img>
+            <img src="<%= listing.images[2] %>" alt="" class="product-image-2">
+            <img src="<%= listing.images[3] %>" alt="" class="product-image-3">
+            <img src="<%= listing.images[4] %>" alt="" class="product-image-3">
+        </div>
+    </div>
+    <div class="product-info">
+        <h1><%= listing.title %></h1>
+        <p>Category: <%=  listing.category %></p>
+        <p>PKR <%= listing.price %></p>
+        <% if (listing.rating) { %>
+            <p>Rating</p>
+        <% } %>
+       
+        <ul>
+            <label for="biullets">Bullet Points</label>
+            <% for( bullet of listing.bulletPoints ) { %>
+                <li><%= bullet %></li>
+            <% } %>
+            
+        </ul>
+        <h2>Description</h2>
+        <p><%= listing.description %></p>
+        <button class="btn btn-lg btn-warning">Add to Cart</button>
+        <br>
+        <hr>
+        <br>
+        <div class="row ">
+        <button id="addReviewButton" 
+        class="btn btn-lg btn-warning">Add a Review!</button>
+
+<form id="reviewForm" class="form needs-validation" action="/reviews/<%= listing._id %>" method="POST" novalidate style="display: none;">
+    <label class="form-label" for="rating">Rating</label>
+    <input required class="form-control" type="range" min="1" max="5" name="rating" id="rating">
+    <label class="form-label" for="comment">Review</label>
+    <textarea class="form-control" type="text" name="comment" id="comment" placeholder="Write your review here..."></textarea><br>
+    <button class="btn btn-lg btn-warning">Submit</button>
+</form>
+    </div>
+        <br>
+
+        <h2>All Reviews</h2>
+        <br>
+        <% for( review of listing.rating ) { %>
+            <h3>Rating: <%= review.rating %></h3>
+            <p>Review: <%= review.comment %></p>
+            <form action="/delete-review/<%= review._id %>/?_method=DELETE" method="POST">
+                <button class="btn btn-danger">Delete review</button>
+            </form>
+        <% } %>
+
+    </div>
+    
+    
+</div>
+
+
+
+
+
+<%- include ("../includes/footer.ejs") %>

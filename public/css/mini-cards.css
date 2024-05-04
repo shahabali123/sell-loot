@@ -1,0 +1,45 @@
+/*mini card section*/
+
+.mini-card-section{
+    height: auto;
+    width: 100%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+}
+
+.mini-card{
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+.mini-card img{
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+}
+@media screen and (max-width: 1220px) {
+    .mini-card img{
+        height: 60px;
+        width: 60px;
+    }
+}
+
+.mini-card:hover{
+    box-shadow: 5px 5px 5px darkgray;
+    transition: 1s;
+}

@@ -1,0 +1,18 @@
+.body-container {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2vw;
+}
+.body-container nav{
+    width: 100%;
+}
+
+@media  screen and (max-width: 768px) {
+    .body-container{
+        width: 100%;
+    }
+}

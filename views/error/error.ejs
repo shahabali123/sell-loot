@@ -1,0 +1,14 @@
+<%- include ('../includes/header.ejs') %>
+<%- include ('../includes/navbar.ejs') %>
+
+<div class="row">
+    <div class="alert alert-warning col-6 offset-3" role="alert">
+        <h2><%= err.statusCode %></h2>
+        <p><%= err.message %></p>
+        <br>
+        <p><%= err.stack %></p>
+      </div>
+</div>
+
+
+<%- include ('../includes/footer.ejs') %>

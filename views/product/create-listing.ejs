@@ -1,0 +1,141 @@
+<%- include ('../includes/header.ejs') %>
+<%- include ('../includes/navbar.ejs') %>
+
+<div class="user-login-form">
+    <form 
+    method="post" 
+    action="/create-listing" 
+    novalidate class="needs-validation">
+        <h1>Create New Listing</h1>
+<!-- title -->
+        <div class="mb-3">
+          <label 
+          for="title" 
+          class="form-label">Product Title</label>
+          <input 
+          type="text" 
+          name="title" 
+          class="form-control" 
+          id="name" 
+          aria-describedby="titleHelp" 
+          >
+          <div 
+          id="titleHelp" 
+          class="form-text">Please choose a title that clearly represent your product.</div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            please  enter a valid title.
+          </div> <br>
+
+          <label 
+          for="category" 
+          class="form-label">Select Category</label>
+          <select required 
+          name="category" 
+          id="category" 
+          class="form-control">
+          <option value="fashion">Fashion</option>
+          <option value="beauty">Beauty</option>
+          <option value="home-decor">Home Decor</option>
+          <option value="computers">Computers</option>
+        </select>
+        
+        <br>
+
+
+          <!-- price -->
+          <div>
+          <label 
+          for="price" 
+          class="form-label">Price</label>
+          <input 
+          type="number" 
+          name="price" 
+          class="form-control" 
+          id="price"
+          required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Price can not be empty.
+          </div>
+        </div>
+          <br>
+
+          <!-- bulletpoints -->
+          <div>
+          <label 
+          for="bulletPoints[]" 
+          class="form-label">Bullet Points</label>
+          <% for( let i = 0; i < 5; i++ ) { %>
+            <input 
+            type="text" 
+            name="bulletPoints[]" 
+            class="form-control" id="bulletPoints" 
+            aria-describedby="bulletHelp" 
+            required>
+          <% } %>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please write all  the bullet points.
+          </div>
+        </div>
+        </div>
+        <br>
+          
+          
+
+        <!-- images -->
+        <div>
+        <label 
+        for="images[]" 
+        class="form-label">Input Images Links</label>
+        <% for( let i = 0; i < 5; i++ ) { %>
+            <input 
+            type="text" 
+            name="images[]" 
+            class="form-control" 
+            id="images" 
+            aria-describedby="bulletHelp" 
+            required>
+        <% } %>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Please input all the images links.
+        </div>
+      </div>
+        <br>
+
+        <div class="mb-3">
+          <label 
+          for="description" 
+          class="form-label">Description</label>
+          <textarea 
+          type="text" 
+          name="description" 
+          class="form-control" 
+          id="description" 
+          placeholder="Briefly Describe your product here...."
+          required></textarea>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please breifly describe your product.
+          </div>
+        </div>
+
+        <button class="btn btn-lg btn-warning">Submit</button>
+        </form>
+        </div>
+
+
+
+<%- include ('../includes/footer.ejs') %>

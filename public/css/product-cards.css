@@ -1,0 +1,41 @@
+.card-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.card-img-top{
+    width: 100%!important;
+}
+.card:hover{
+    box-shadow: 5px 5px 5px darkgray;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .card-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 7px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .card{
+        width: 9rem !important;
+    }
+    .card p{
+        display: none;
+    }
+    .card a{
+        width: 100%;
+        font-size: smaller;
+    }
+}
