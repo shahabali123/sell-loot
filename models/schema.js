@@ -131,13 +131,7 @@ const User = mongoose.model('User', userSchema);
 const CartItem = mongoose.model('CartItem', cartItemSchema);
 const  Rating = mongoose.model("Rating",ratingSchema);
 
-// deletion ko handle krny k liye middleware jis ka kam hai jahan b koi listing delete ho rhi hai usky sath usky reviews b delete ho jayen
-// listingSchema.post("findOneAndDelete", async(listing) =>{
-//   if(listing){
-//      let res = await Rating.deleteMany({_id: {$in: listing.rating}});
-//      console.log(res);
-//   }
-// });
+
 listingSchema.post('findOneAndDelete', async (listing) => {
   if (listing && listing.rating.length > 0) {
     try {
